@@ -1,44 +1,132 @@
-/* シンプルなスタイル */
+/* モダン & オシャレなスタイル */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
-    background: #f5f5f5;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: #333;
 }
+
 header {
-    background: #4caf50;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 1rem;
+    padding: 2rem 1rem;
     text-align: center;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
 main {
-    padding: 1rem;
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
+
 #item-form {
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
-#item-input {
-    flex: 1;
-    padding: 0.5rem;
+
+#item-input,
+#reminder-time,
+#item-form button {
+    padding: 0.9rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
-#reminder-time {
-    padding: 0.5rem;
+
+#item-input:focus,
+#reminder-time:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
+
+#item-form button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#item-form button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.2);
+}
+
 #item-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
+
 #item-list li {
     background: white;
-    margin-bottom: 0.5rem;
-    padding: 0.75rem;
-    border-radius: 4px;
+    margin-bottom: 1rem;
+    padding: 1.2rem;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid #667eea;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
+#item-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+#item-list li span:first-child {
+    flex: 1;
+    font-weight: 500;
+    color: #333;
+}
+
+#item-list li span:last-of-type {
+    flex: 1;
+    color: #999;
+    font-size: 0.85rem;
+    margin: 0 1rem;
+    text-align: right;
+}
+
 #item-list button {
-    margin-left: 0.5rem;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#item-list button:active {
+    transform: scale(0.95);
+    background: #ff5252;
 }

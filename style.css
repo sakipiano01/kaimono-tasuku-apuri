@@ -1,0 +1,44 @@
+/* シンプルなスタイル */
+body {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    background: #f5f5f5;
+}
+header {
+    background: #4caf50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+main {
+    padding: 1rem;
+}
+#item-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+#item-input {
+    flex: 1;
+    padding: 0.5rem;
+}
+#reminder-time {
+    padding: 0.5rem;
+}
+#item-list {
+    list-style: none;
+    padding: 0;
+}
+#item-list li {
+    background: white;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#item-list button {
+    margin-left: 0.5rem;
+}

@@ -1,5 +1,4 @@
 // シンプルな買い物リマインダー
-localStorage.removeItem('appPin'); // PINリセット用（使ったら削除してください）
 
 function hashPin(pin) {
     // 単純なハッシュ (本番では強いアルゴリズムを使う)
@@ -12,42 +11,18 @@ function hashPin(pin) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const debugDiv = document.getElementById('debug-log');
-    function log(msg) {
-        if (debugDiv) {
-            debugDiv.textContent += msg + '\n';
-            debugDiv.scrollTop = debugDiv.scrollHeight;
-        }
-        console.log(msg);
-    }
-    log('DOMContentLoaded fired');
     const form = document.getElementById('item-form');
     const pinOverlay = document.getElementById('pin-overlay');
     const pinInput = document.getElementById('pin-input');
     const pinSubmit = document.getElementById('pin-submit');
     const pinMessage = document.getElementById('pin-message');
     
-    // wrapper for localStorage with logging
-    function storageGet(key) {
-        try {
-            return localStorage.getItem(key);
-        } catch (e) {
-            log('storageGet error ' + key + ': ' + e);
-            return null;
-        }
-    }
-    function storageSet(key, val) {
-        try {
-            localStorage.setItem(key, val);
-        } catch (e) {
-            log('storageSet error ' + key + ': ' + e);
-        }
-    }
+    function storageGet(key) { return localStorage.getItem(key); }
+    function storageSet(key, val) { localStorage.setItem(key, val); }
 
     // PINロック処理
     function checkPin() {
         const stored = storageGet('appPin');
-        log('checkPin stored=' + stored);
         if (!stored) {
             pinMessage.textContent = '新しいPINを設定してください';
         }
@@ -56,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
             pinMessage.textContent = 'ボタンが押されました…';
             const pin = pinInput.value.trim();
             const currentStored = storageGet('appPin');
-            log('pin submit clicked stored=' + currentStored + ' pin=' + pin);
             if (!/^[0-9]{4,6}$/.test(pin)) {
                 pinMessage.textContent = '4〜6 桁の数字を入力してください';
                 pinInput.value = '';

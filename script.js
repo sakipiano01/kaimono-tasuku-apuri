@@ -1,4 +1,5 @@
 // シンプルな買い物リマインダー
+localStorage.removeItem('appPin'); // PINリセット用（使ったら削除してください）
 
 function hashPin(pin) {
     // 単純なハッシュ (本番では強いアルゴリズムを使う)
